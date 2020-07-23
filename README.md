@@ -8,6 +8,7 @@ MVVM 아키텍쳐를 참고합니다
 MVVM 데모 프로젝트
 [https://github.com/shubham-chhimpa/flutter-mvvm-provider-demo]
 
-UI, View Model , DataModel,
+UI, (View Model) , DataModel,
 
-Post, User
+Screen(UI) --> PostsNotifier --> Repository --> Service(API) --> DATABASE or STORAGE
+(View Model?)
