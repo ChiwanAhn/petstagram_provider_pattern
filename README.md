@@ -1,16 +1,13 @@
 # petstagram
 
-A new Flutter project.
+## Provider 패턴 적용
 
-## Getting Started
+MVVM 아키텍쳐를 참고합니다
+[https://medium.com/free-code-camp/app-architecture-mvvm-in-flutter-using-dart-streams-26f6bd6ae4b6]
 
-This project is a starting point for a Flutter application.
+MVVM 데모 프로젝트
+[https://github.com/shubham-chhimpa/flutter-mvvm-provider-demo]
 
-A few resources to get you started if this is your first Flutter project:
+UI, View Model , DataModel,
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Post, User
