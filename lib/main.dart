@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:petstagram/notifiers/post_notifier.dart';
+import 'package:petstagram/locator.dart';
 import 'package:petstagram/screens/screens.dart';
-import 'package:provider/provider.dart';
 
 void main() {
+  setup();
   runApp(MyApp());
 }
 
@@ -12,20 +12,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MultiProvider(
-      providers: [
-        ChangeNotifierProvider(
-          create: (context) => PostsNotifier(),
-        ),
-      ],
-      child: MaterialApp(
-        title: 'Flutter Demo',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          visualDensity: VisualDensity.adaptivePlatformDensity,
-        ),
-        home: HomeScreen(),
+    return MaterialApp(
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
+      home: HomeScreen(),
     );
   }
 }

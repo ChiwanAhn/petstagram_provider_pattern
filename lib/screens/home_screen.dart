@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:petstagram/notifiers/post_notifier.dart';
 import 'package:petstagram/widgets/post_list_item.dart';
+import 'package:petstagram/view_models/view_models.dart';
 import 'package:provider/provider.dart';
+import 'package:petstagram/locator.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key key}) : super(key: key);
@@ -11,10 +12,11 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  PostsViewModel model = locator<PostsViewModel>();
   @override
   void initState() {
     super.initState();
-    Provider.of<PostsNotifier>(context, listen: false).listPosts();
+    model.listPosts();
   }
 
   @override
@@ -36,18 +38,21 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   Widget _buildPosts() {
-    return Consumer<PostsNotifier>(
-      builder: (context, postViewModel, child) {
-        return ListView.separated(
-          itemCount: postViewModel.posts.length,
-          itemBuilder: (context, index) {
-            return PostListItem(post: postViewModel.posts[index]);
-          },
-          separatorBuilder: (context, index) {
-            return SizedBox(height: 16);
-          },
-        );
-      },
+    return ChangeNotifierProvider<PostsViewModel>(
+      create: (context) => model,
+      child: Consumer<PostsViewModel>(
+        builder: (context, postViewModel, child) {
+          return ListView.separated(
+            itemCount: postViewModel.posts.length,
+            itemBuilder: (context, index) {
+              return PostListItem(post: postViewModel.posts[index]);
+            },
+            separatorBuilder: (context, index) {
+              return SizedBox(height: 16);
+            },
+          );
+        },
+      ),
     );
   }
 }
