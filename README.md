@@ -13,5 +13,4 @@ https://blog.yena.io/studynote/2019/03/16/Android-MVVM-AAC-1.html
 
 UI, (View Model) , DataModel,
 
-Screen(UI) --> PostsNotifier --> Repository --> Service(API) --> DATABASE or STORAGE
-(View Model?)
+Screen(UI) --> ViewModel --> Service --> Service(API) --> DATABASE or STORAGE
